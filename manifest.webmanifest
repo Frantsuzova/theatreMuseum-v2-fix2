@@ -1,0 +1,9 @@
+{
+  "name": "Город музыки и театров",
+  "short_name": "Город музыки",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f2e4c8",
+  "theme_color": "#741b2a",
+  "orientation": "portrait"
+}
