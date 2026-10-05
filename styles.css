@@ -10863,3 +10863,12 @@ body.type-original p,body.type-original figcaption,body.type-original .gallery-c
 .story-columns p.reading-current::after{animation:caretArrive .7s ease both,readingCaret .8s .7s step-end infinite!important}
 @keyframes caretArrive{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.story-rule-first>span.reading-heading-current::after,.story-columns p.reading-current::after{animation:none!important;opacity:.7}}
+
+/* v43: header controls keep their visual size independently of curtain fitting. */
+.intro-topbar .intro-burger{width:32px!important;height:32px!important;min-height:32px!important;min-width:32px!important;border-radius:50%!important;appearance:none!important;border:0!important;}
+.intro-topbar .intro-burger svg{display:block;width:22px;height:22px;flex:none;fill:none;stroke:#741b2a;stroke-width:2;stroke-linecap:round;}
+.intro-topbar .museum-logo-halo{right:46px!important;min-width:128px!important;height:34px!important;}
+.intro-topbar .museum-logo{object-position:right center!important;}
+.intro-topbar .intro-sponsor{width:78px!important;height:34px!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;}
+.intro-topbar .intro-sponsor img{width:66px!important;max-width:66px!important;height:23px!important;object-fit:contain!important;}
+.intro-topbar .intro-sponsor span{font-size:7px!important;line-height:9px!important;white-space:nowrap!important;}

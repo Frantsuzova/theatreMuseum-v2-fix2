@@ -1325,10 +1325,10 @@ function fitCurtainLogo(){
   const sy=(cropY+top+width*446/2048+8)/scale;
   let x=edge[edge.length-1][1];
   for(let i=1;i<edge.length;i++)if(sy<=edge[i][0]){const a=edge[i-1],b=edge[i];x=a[1]+(b[1]-a[1])*(sy-a[0])/(b[0]-a[0]);break;}
-  width=Math.min(166,Math.max(72,w-18-60-(x*scale-cropX)-10));
+  width=Math.min(154,Math.max(128,w-18-60-(x*scale-cropX)-10));
  }
  screen.style.setProperty('--curtain-logo-width',width.toFixed(1)+'px');
- screen.style.setProperty('--header-mark-height',(width*446/2048).toFixed(1)+'px');
+ screen.style.setProperty('--header-mark-height','32px');
 }
 window.addEventListener('resize',fitCurtainLogo,{passive:true});
 window.addEventListener('load',fitCurtainLogo);
