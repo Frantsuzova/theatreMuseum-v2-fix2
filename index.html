@@ -1,14 +1,15 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta name="app-build" content="watercolor-v38" />
+  <meta name="app-build" content="watercolor-v42" />
   <meta name="yandex-maps-api-key" content="" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#741b2a" />
   <title>Город музыки и театров</title>
-  <link rel="manifest" href="./manifest.webmanifest?v=watercolor-38" />
-  <link rel="stylesheet" href="./styles.css?v=watercolor-38" />
+  <link rel="manifest" href="./manifest.webmanifest?v=watercolor-42" />
+  <link rel="stylesheet" href="./styles.css?v=watercolor-42" />
+  <link rel="stylesheet" href="./routes.css?v=watercolor-42" />
 </head>
 <body>
   <main class="app" id="app">
@@ -51,30 +52,30 @@
       <div class="film-overlay route-select-film"></div>
       <div class="curtain"></div>
       <header class="route-select-head">
-        <button class="round route-select-back" id="backToPrologue" type="button">←</button>
+        <button class="round route-select-back" id="backToPrologue" aria-label="Назад" type="button">←</button>
         <div class="route-select-head-copy">
           <div class="kicker">Город музыки и театров</div>
           <h2>Маршруты</h2>
         </div>
       </header>
       <main class="route-select-main">
-        <p class="route-select-intro">Выберите линию прогулки. Коснитесь маршрута, чтобы увидеть его историю.</p>
+        <p class="route-select-intro">Четыре прогулки — четыре истории Петербурга.</p>
         <div class="route-choice-grid" id="routeChoiceList">
           <button class="route-choice" data-route="1" type="button">
             <span class="route-choice-badge c1">1</span>
-            <span class="route-choice-text"><strong>Жёлтый маршрут</strong><em>Римский-Корсаков — Шаляпин</em></span>
+            <span class="route-choice-text"><strong>Маршрут 01</strong><em>Римский-Корсаков — Шаляпин</em><span class="route-choice-hook">Узнать талант. Услышать друг друга.</span><span class="route-choice-invite" aria-hidden="true">Открыть <span>↗</span></span></span>
           </button>
           <button class="route-choice" data-route="2" type="button">
             <span class="route-choice-badge c2">2</span>
-            <span class="route-choice-text"><strong>Синий маршрут</strong><em>Дягилев</em></span>
+            <span class="route-choice-text"><strong>Маршрут 02</strong><em>Дягилев</em><span class="route-choice-hook">Риск, который меняет театр.</span><span class="route-choice-invite" aria-hidden="true">Открыть <span>↗</span></span></span>
           </button>
           <button class="route-choice" data-route="3" type="button">
             <span class="route-choice-badge c3">3</span>
-            <span class="route-choice-text"><strong>Фиолетовый маршрут</strong><em>Фонтанный дом</em></span>
+            <span class="route-choice-text"><strong>Маршрут 03</strong><em>Фонтанный дом</em><span class="route-choice-hook">Память дома. Голоса музыкального салона.</span><span class="route-choice-invite" aria-hidden="true">Открыть <span>↗</span></span></span>
           </button>
           <button class="route-choice" data-route="4" type="button">
             <span class="route-choice-badge c4">4</span>
-            <span class="route-choice-text"><strong>Зелёный маршрут</strong><em>Репин — Серов</em></span>
+            <span class="route-choice-text"><strong>Маршрут 04</strong><em>Репин — Серов</em><span class="route-choice-hook">Два поколения. Новый взгляд.</span><span class="route-choice-invite" aria-hidden="true">Открыть <span>↗</span></span></span>
           </button>
         </div>
 
@@ -425,6 +426,6 @@
         <footer class="content-modal-actions route-detail-actions"><button class="btn primary" id="startRouteFromDetail" type="button">Начать прогулку</button></footer>
       </div>
     </aside>
-  <script src="./app.watercolor.js?v=watercolor-38"></script>
+  <script src="./app.watercolor.js?v=watercolor-42"></script>
 </body>
 </html>

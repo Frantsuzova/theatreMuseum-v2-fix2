@@ -1,0 +1,111 @@
+/* Route programme: a light editorial continuation of the walking guide. */
+#routesScreen{background:#f7efdf!important;isolation:isolate;}
+#routesScreen::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,250,238,.91),rgba(251,240,219,.92)),url('./assets/river-map-bg.png') center/cover;}
+#routesScreen .route-select-bg{position:absolute!important;inset:auto 0 0!important;width:100%!important;height:48%!important;object-fit:cover!important;object-position:center bottom!important;opacity:.42!important;filter:saturate(.55)!important;mask-image:linear-gradient(transparent,#000 75%)!important;-webkit-mask-image:linear-gradient(transparent,#000 75%)!important;z-index:1!important;pointer-events:none;}
+#routesScreen .route-select-shade,#routesScreen .route-select-film,#routesScreen>.curtain{display:none!important;}
+#routesScreen .route-select-head{padding:21px 22px 18px!important;gap:15px!important;border-bottom:1px solid rgba(116,27,42,.2);}
+#routesScreen .route-select-back{display:grid!important;place-items:center!important;padding:0!important;width:44px!important;height:44px!important;background:transparent!important;border:1px solid #d4b56f!important;color:#741b2a!important;box-shadow:none!important;line-height:1!important;}
+#routesScreen .route-select-back:hover{background:#741b2a!important;color:#fff5df!important;}
+#routesScreen .kicker{color:#741b2a!important;font-size:11px!important;letter-spacing:.16em!important;line-height:1.5!important;}
+#routesScreen .route-select-head h2{color:#302627!important;font-size:32px!important;margin:3px 0 0!important;}
+#routesScreen .route-select-main{padding:22px 22px max(130px,env(safe-area-inset-bottom))!important;min-height:0!important;z-index:3!important;}
+#routesScreen .route-select-intro{color:#403336!important;font-size:16px!important;line-height:1.55!important;margin:0 0 24px!important;max-width:none!important;text-align:left!important;}
+#routesScreen .route-choice-grid{gap:0!important;}
+#routesScreen .route-choice{position:relative!important;display:grid!important;grid-template-columns:43px minmax(0,1fr) 18px!important;gap:12px!important;min-height:96px!important;height:auto!important;padding:18px 0!important;border:0!important;border-bottom:1px solid rgba(116,27,42,.24)!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;text-align:left!important;transition:background .25s ease!important;}
+#routesScreen .route-choice::before{content:none!important;}
+#routesScreen .route-choice::after{content:""!important;position:static!important;width:8px!important;height:8px!important;border:solid #741b2a!important;border-width:0 1.5px 1.5px 0!important;background:none!important;transform:rotate(45deg)!important;transition:transform .3s ease!important;justify-self:center;}
+#routesScreen .route-choice.active::after{transform:rotate(225deg)!important;}
+#routesScreen .route-choice.active,#routesScreen .route-choice:hover{background:rgba(255,250,240,.65)!important;}
+#routesScreen .route-choice-badge{width:43px!important;height:43px!important;display:grid!important;place-items:center!important;border-radius:50%!important;box-shadow:none!important;border:0!important;font-size:19px!important;font-weight:600!important;color:#252024!important;}
+#routesScreen .route-choice-text strong{display:block!important;color:#63534c!important;font-size:12px!important;line-height:1.4!important;font-weight:500!important;margin-bottom:5px!important;}
+#routesScreen .route-choice-text em{display:block!important;color:#302627!important;font-size:25px!important;line-height:1.15!important;font-style:normal!important;overflow-wrap:anywhere!important;}
+#routesScreen .route-select-detail{padding:20px 0 24px!important;margin:0!important;border:0!important;border-bottom:1px solid rgba(116,27,42,.24)!important;border-radius:0!important;background:rgba(255,250,240,.7)!important;box-shadow:none!important;animation:routeDescriptionIn .3s ease both;}
+#routesScreen .route-select-detail .sheet-label{display:none!important;}
+#routesScreen .route-select-detail h3{color:#302627!important;font-size:24px!important;line-height:1.25!important;margin:0 0 12px!important;}
+#routesScreen .route-select-detail p{color:#403336!important;font-size:16px!important;line-height:1.6!important;margin:0!important;}
+#routesScreen .route-detail-actions-inline{grid-template-columns:1fr!important;gap:10px!important;margin-top:20px!important;}
+#routesScreen .route-detail-actions-inline button{font-family:var(--body-font)!important;font-size:15px!important;min-height:48px!important;border-radius:999px!important;box-shadow:none!important;padding:12px 18px!important;}
+#routesScreen .route-detail-primary{background:#741b2a!important;color:#fff5df!important;border:1px solid #d4b56f!important;}
+#routesScreen .route-detail-primary span{color:#ebca79!important;}
+#routesScreen .route-start-inline{background:color-mix(in srgb,var(--active-route-color) 24%,#fff8e9)!important;border:1px solid color-mix(in srgb,var(--active-route-color) 65%,#66594a)!important;color:#302627!important;}
+#routesScreen button:focus-visible{outline:2px solid #741b2a;outline-offset:4px;}
+@keyframes routeDescriptionIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+@media(max-width:350px){#routesScreen .route-select-head{padding:16px!important;}#routesScreen .kicker{font-size:9px!important;}#routesScreen .route-select-main{padding:18px 16px 100px!important;}#routesScreen .route-choice{grid-template-columns:36px minmax(0,1fr) 16px!important;gap:10px!important;}#routesScreen .route-choice-badge{width:34px!important;height:34px!important;font-size:16px!important;}#routesScreen .route-choice-text em{font-size:22px!important;}}
+@media(prefers-reduced-motion:reduce){#routesScreen *{animation:none!important;transition:none!important;}}
+#routesScreen .route-select-bg{transform:none!important;max-width:none!important;}
+#routesScreen .route-select-main{justify-content:flex-start!important;}
+#routesScreen .route-detail-actions-inline{display:grid!important;width:100%!important;}
+#routesScreen .route-detail-actions-inline button{width:100%!important;max-width:none!important;}
+#routesScreen .route-choice::after{border-radius:0!important;box-shadow:none!important;opacity:1!important;}
+#routesScreen .route-select-bg{opacity:.25!important;}
+
+/* v40: the selected story opens as a theatre stage within the programme. */
+#routesScreen .route-choice{grid-template-columns:44px minmax(0,1fr) 18px!important;padding:20px 12px!important;}
+#routesScreen .route-choice-badge{border-radius:0!important;background:transparent!important;font-family:var(--heading-font)!important;font-weight:400!important;font-size:39px!important;height:auto!important;line-height:1!important;}
+#routesScreen .route-choice-badge.c1{color:#997200!important;}
+#routesScreen .route-choice-badge.c2{color:#087caa!important;}
+#routesScreen .route-choice-badge.c3{color:#8941ae!important;}
+#routesScreen .route-choice-badge.c4{color:#3d7b26!important;}
+#routesScreen .route-choice-text strong{font-size:10px!important;letter-spacing:.1em!important;text-transform:uppercase;}
+#routesScreen .route-choice-text em{font-size:26px!important;}
+#routesScreen .route-choice.active{background:#172228!important;border-bottom:0!important;border-radius:16px 16px 0 0!important;padding-top:23px!important;padding-bottom:17px!important;}
+#routesScreen .route-choice.active .route-choice-text em{color:#fff0d1!important;}
+#routesScreen .route-choice.active .route-choice-text strong{color:#d6ccb7!important;}
+#routesScreen .route-choice.active .route-choice-badge{color:var(--active-route-color)!important;}
+#routesScreen .route-choice.active::after{border-color:var(--active-route-color)!important;}
+#routesScreen .route-select-detail{background:#172228!important;color:#fff0d1!important;padding:0 20px 23px!important;border-bottom:2px solid var(--active-route-color)!important;border-radius:0 0 16px 16px!important;margin-bottom:16px!important;animation:routeDescriptionIn .35s ease both;}
+#routesScreen .route-select-detail h3{display:none!important;}
+#routesScreen .route-select-detail p{color:#ede3ce!important;font-size:16px!important;line-height:1.6!important;padding-top:17px!important;border-top:1px solid rgba(235,202,121,.2);text-align:left!important;}
+#routesScreen .route-detail-actions-inline{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)!important;gap:10px!important;margin-top:22px!important;}
+#routesScreen .route-detail-actions-inline button{border-radius:8px!important;min-height:52px!important;font-size:14px!important;line-height:1.25!important;padding:11px 12px!important;}
+#routesScreen .route-detail-primary{border:1px solid #ebca79!important;background:#10191d!important;color:#fff0d1!important;box-shadow:inset 3px 0 var(--active-route-color)!important;}
+#routesScreen .route-detail-primary span{color:var(--active-route-color)!important;}
+#routesScreen .route-start-inline{background:var(--active-route-color)!important;border:1px solid var(--active-route-color)!important;color:#172228!important;}
+#routesScreen .route-detail-primary:hover{background:#26343b!important;}
+#routesScreen .route-start-inline:hover{filter:brightness(1.08);}
+@media(max-width:350px){#routesScreen .route-choice{grid-template-columns:34px minmax(0,1fr) 14px!important;padding-inline:7px!important;gap:8px!important;}#routesScreen .route-choice-badge{width:32px!important;font-size:33px!important;}#routesScreen .route-choice-text em{font-size:22px!important;}#routesScreen .route-select-detail{padding-inline:13px!important;}#routesScreen .route-detail-actions-inline{gap:8px!important;}#routesScreen .route-detail-actions-inline button{font-size:12px!important;padding-inline:8px!important;}}
+#routesScreen .route-select-main,#routesScreen .route-select-head{margin-block:0!important;}
+
+/* v41: bright theatre tickets and a readable invitation to each story. */
+#routesScreen .route-choice{grid-template-columns:54px minmax(0,1fr) 16px!important;gap:14px!important;padding:22px 6px!important;align-items:start!important;border-bottom-color:rgba(116,27,42,.27)!important;}
+#routesScreen .route-choice-badge{display:grid!important;place-items:center!important;width:54px!important;height:66px!important;margin-top:4px!important;border-radius:7px!important;background:#172228!important;font-family:var(--body-font)!important;font-size:34px!important;font-weight:600!important;line-height:1!important;box-shadow:0 3px 8px rgba(23,34,40,.12)!important;transition:transform .3s ease,box-shadow .3s ease!important;}
+#routesScreen .route-choice-badge.c1{color:#ffd33f!important;}
+#routesScreen .route-choice-badge.c2{color:#59c2ff!important;}
+#routesScreen .route-choice-badge.c3{color:#ce68ff!important;}
+#routesScreen .route-choice-badge.c4{color:#7ee36a!important;}
+#routesScreen .route-choice-text strong{color:#741b2a!important;font-size:10px!important;letter-spacing:.12em!important;margin-bottom:7px!important;}
+#routesScreen .route-choice-text em{font-size:25px!important;line-height:1.16!important;}
+#routesScreen .route-choice-hook{display:block;color:#554841;font-family:var(--body-font);font-size:12px;line-height:1.5;margin-top:9px;}
+#routesScreen .route-choice-invite{display:flex;align-items:center;gap:8px;color:#741b2a;font-family:var(--body-font);font-size:11px;font-weight:600;line-height:1.4;margin-top:13px;}
+#routesScreen .route-choice-invite>span{font-size:19px;line-height:1;transition:transform .3s ease;}
+#routesScreen .route-choice::after{margin-top:21px!important;border-color:#741b2a!important;}
+#routesScreen .route-choice:hover{background:rgba(255,250,240,.82)!important;}
+#routesScreen .route-choice:hover .route-choice-badge{transform:translateY(-3px) rotate(-3deg);box-shadow:0 7px 14px rgba(23,34,40,.2)!important;}
+#routesScreen .route-choice:hover .route-choice-invite>span{transform:translate(3px,-3px);}
+#routesScreen .route-choice:active .route-choice-badge{transform:scale(.95);}
+#routesScreen .route-choice.active{padding:22px 15px 18px!important;grid-template-columns:54px minmax(0,1fr) 16px!important;}
+#routesScreen .route-choice.active .route-choice-badge{background:var(--active-route-color)!important;color:#172228!important;box-shadow:none!important;}
+#routesScreen .route-choice.active .route-choice-text strong{color:var(--active-route-color)!important;}
+#routesScreen .route-choice.active .route-choice-hook,#routesScreen .route-choice.active .route-choice-invite{display:none;}
+@media(max-width:350px){#routesScreen .route-choice,#routesScreen .route-choice.active{grid-template-columns:43px minmax(0,1fr) 12px!important;gap:10px!important;padding-inline:5px!important;}#routesScreen .route-choice.active{padding-inline:12px!important;}#routesScreen .route-choice-badge{width:43px!important;height:58px!important;font-size:29px!important;}#routesScreen .route-choice-text em{font-size:22px!important;}#routesScreen .route-choice-hook{font-size:11px;}#routesScreen .route-choice-invite{font-size:10px;}}
+#routesScreen{background:linear-gradient(180deg,rgba(255,250,238,.91),rgba(251,240,219,.92)),url('./assets/river-map-bg.png') center/cover!important;background-attachment:local!important;}
+#routesScreen::before{content:none!important;}
+#routesScreen .route-select-bg{mask-image:linear-gradient(transparent,#000 65%,rgba(0,0,0,.4) 88%,transparent)!important;-webkit-mask-image:linear-gradient(transparent,#000 65%,rgba(0,0,0,.4) 88%,transparent)!important;}
+
+/* v42: compact programme and stable selected state on mouse/touch. */
+#routesScreen .route-choice.active,#routesScreen .route-choice.active:hover,#routesScreen .route-choice.active:focus,#routesScreen .route-choice.active:active{background:#172228!important;}
+#routesScreen .route-choice.active .route-choice-badge{transform:none!important;}
+#routesScreen .route-select-head{padding:16px 22px!important;}
+#routesScreen .route-select-main{padding:16px 22px 28px!important;}
+#routesScreen .route-select-intro{font-size:15px!important;line-height:1.45!important;margin-bottom:12px!important;}
+#routesScreen .route-choice{padding:16px 6px!important;min-height:0!important;gap:13px!important;}
+#routesScreen .route-choice-text strong{display:none!important;}
+#routesScreen .route-choice-badge{height:57px!important;width:48px!important;margin-top:0!important;font-size:31px!important;}
+#routesScreen .route-choice-text em{font-size:24px!important;}
+#routesScreen .route-choice-hook{margin-top:6px!important;font-size:12px!important;line-height:1.4!important;}
+#routesScreen .route-choice-invite{margin-top:6px!important;font-size:11px!important;}
+#routesScreen .route-choice.active{padding:20px 15px 17px!important;}
+#routesScreen .route-choice.active .route-choice-text em{color:#fff0d1!important;}
+@media(max-width:350px){#routesScreen .route-select-head{padding:14px 16px!important;}#routesScreen .route-select-main{padding:14px 16px 22px!important;}#routesScreen .route-choice{padding:13px 5px!important;}#routesScreen .route-choice-badge{width:40px!important;height:51px!important;font-size:28px!important;}#routesScreen .route-choice-text em{font-size:21px!important;}}
+@media(max-height:700px){#routesScreen .route-select-head{padding-top:12px!important;padding-bottom:12px!important;}#routesScreen .route-select-main{padding-top:12px!important;padding-bottom:16px!important;}#routesScreen .route-select-intro{margin-bottom:7px!important;font-size:13px!important;}#routesScreen .route-choice{padding-top:11px!important;padding-bottom:11px!important;}#routesScreen .route-choice-hook{font-size:11px!important;margin-top:4px!important;}#routesScreen .route-choice-invite{margin-top:4px!important;}#routesScreen .route-choice-text em{font-size:22px!important;}}
+@media(max-height:600px){#routesScreen .route-select-intro{display:none!important;}#routesScreen .route-choice-hook{display:none!important;}#routesScreen .route-choice{padding-top:12px!important;padding-bottom:12px!important;}}

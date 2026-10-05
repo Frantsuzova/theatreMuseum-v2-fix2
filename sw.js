@@ -1,4 +1,4 @@
-const CACHE_PREFIX='gorod-muzyki-watercolor-v38-';
+const CACHE_PREFIX='gorod-muzyki-watercolor-v42-';
 
 self.addEventListener('install',event=>{
   event.waitUntil(self.skipWaiting());
